@@ -9,6 +9,7 @@ Tên thành viên:
 8. 22110427_Lê Xuân Thịnh
    
 Giao diện trang Intro
+
 ![image](https://github.com/user-attachments/assets/80d1111e-82ad-430c-9322-611219857f07)
 
 
