@@ -17,171 +17,154 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/header_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:background="#FF5733"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_user_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/iv_user_avatar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:scaleType="centerCrop"
-                android:background="@drawable/circle_background" />
-        </LinearLayout>
-
-        <!-- Thanh tìm kiếm -->
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="371dp"
-            android:layout_height="47dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/search_background"
-            android:drawableStart="@android:drawable/ic_menu_search"
-            android:drawablePadding="10dp"
-            android:hint="Search"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textColorHint="#999999"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/banner_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_layout" />
-        <!-- Banner -->
-
-        <!-- Tiêu đề "Categories" -->
-        <LinearLayout
-            android:id="@+id/banner_layout"
-            android:layout_width="372dp"
-            android:layout_height="102dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/banner_background"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            app:layout_constraintBottom_toTopOf="@id/tv_categories_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.625"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_layout">
-
-            <!-- Icon giao hàng -->
-            <ImageView
-                android:id="@+id/iv_banner_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/delivery_icon" />
-
-            <!-- Văn bản Miễn Ship và thời gian -->
+            <!-- Header -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/header_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:background="#FF5733">
 
                 <TextView
-                    android:id="@+id/tv_banner_title"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Miễn Ship"
-                    android:textColor="#333333"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tv_banner_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20/3 - 30/3"
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
+                <ImageView
+                    android:id="@+id/iv_user_avatar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_background" />
             </LinearLayout>
 
-            <!-- Nút Đặt Hàng -->
-            <Button
-                android:id="@+id/btn_order"
+            <!-- Thanh tìm kiếm -->
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/search_background"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="10dp"
+                android:hint="Search"
+                android:padding="10dp"
+                android:textColor="#000000"
+                android:textColorHint="#999999"
+                android:textSize="16sp" />
+
+            <!-- Banner -->
+            <LinearLayout
+                android:id="@+id/banner_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/banner_background"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/iv_banner_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/delivery_icon" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_banner_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Miễn Ship"
+                        android:textColor="#333333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_banner_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20/3 - 30/3"
+                        android:textColor="#666666"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FF5733"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="Đặt Hàng"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <!-- Tiêu đề "Categories" -->
+            <TextView
+                android:id="@+id/tv_categories_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FF5733"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="8dp"
-                android:text="Đặt Hàng"
-                android:textColor="#FFFFFF" />
+                android:text="Categories"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp" />
+
+            <!-- RecyclerView hiển thị danh sách Category -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal" />
+
+            <!-- Tiêu đề "Last Product" -->
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Last Product"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- RecyclerView hiển thị danh sách sản phẩm mới -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLastProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" />
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_categories_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Categories"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/banner_layout"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <!-- RecyclerView hiển thị danh sách Category -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_categories"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_categories_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:orientation="horizontal" />
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Last Product"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvCategories" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvLastProducts"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-
     </ScrollView>
 
+    <!-- Bottom Navigation -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/scroll"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -194,117 +177,8 @@
             app:fabCradleRoundedCornerRadius="50dp"
             app:fabCradleVerticalOffset="6dp"
             app:fabAlignmentMode="center"
-            app:hideOnScroll="true">
+            app:hideOnScroll="true" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:id="@+id/homeBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/ic_home"
-                        app:tint="#FF0000" />
-
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Home"
-                        android:textAlignment="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView5115"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/bottom_btn2"
-                        app:tint="#FF0000"/>
-
-                    <TextView
-                        android:id="@+id/textView11125"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Settings"
-                        android:textAlignment="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"/>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView511"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/bottom_btn3"
-                        app:tint="#FF0000"/>
-
-                    <TextView
-                        android:id="@+id/textView111"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Support"
-                        android:textAlignment="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/imageView5112"
-                        android:layout_width="70dp"
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/logout"
-                        app:tint="#FF0000"/>
-
-                    <TextView
-                        android:id="@+id/textView1112"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Logout"
-                        android:textAlignment="center"
-                        android:textColor="#676767"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.bottomappbar.BottomAppBar>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cartBtn"
             android:layout_width="60dp"
@@ -315,8 +189,6 @@
             app:tint="@color/white"
             app:maxImageSize="24dp"
             app:elevation="8dp" />
-
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
