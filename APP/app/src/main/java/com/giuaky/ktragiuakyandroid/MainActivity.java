@@ -1,27 +1,20 @@
+// MainActivity.java
 package com.giuaky.ktragiuakyandroid;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.giuaky.ktragiuakyandroid.adapter.CategoryAdapter;
 import com.giuaky.ktragiuakyandroid.adapter.ProductAdapter;
 import com.giuaky.ktragiuakyandroid.dto.ProductResponse;
+import com.giuaky.ktragiuakyandroid.model.CategoryModel;
 import com.giuaky.ktragiuakyandroid.model.ProductModel;
 import com.giuaky.ktragiuakyandroid.service.ProductAPIService;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,19 +30,13 @@ public class MainActivity extends AppCompatActivity {
     ProductAdapter productAdapter;
     CategoryAdapter categoryAdapter;
     ProductAPIService apiProductService;
-    List<ProductModel> productList;
+    List<ProductModel> productList = new ArrayList<>();
     List<CategoryModel> categoryList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_Container), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         // Initialize Product RecyclerView
         rcProduct = findViewById(R.id.rvLastProducts);
@@ -78,16 +65,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Load initial data
+        loadCategories();
         loadMoreProducts();
     }
 
-    /*
-     * @Author 22110422 - Bui Duc Thang
-     * */
+    private void loadCategories() {
+        apiProductService = RetrofitClient.getRetrofit().create(ProductAPIService.class);
+        apiProductService.getCategories().enqueue(new Callback<List<CategoryModel>>() {
+            @Override
+            public void onResponse(Call<List<CategoryModel>> call, Response<List<CategoryModel>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    categoryList.clear();
+                    categoryList.addAll(response.body());
+                    categoryAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CategoryModel>> call, Throwable t) {
+                Log.e("API Error", "Failed to load categories: " + t.getMessage());
+            }
+        });
+    }
+
     private void loadMoreProducts() {
         isLoading = true;
         apiProductService = RetrofitClient.getRetrofit().create(ProductAPIService.class);
-        apiProductService.getProducts(category,page,9).enqueue(new Callback<ProductResponse>() {
+        apiProductService.getProducts(category, page, 9).enqueue(new Callback<ProductResponse>() {
             @Override
             public void onResponse(Call<ProductResponse> call, Response<ProductResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
