@@ -1,7 +1,10 @@
 package com.giuaky.ktragiuakyandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -44,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
 
         rcProduct = findViewById(R.id.rvLastProducts);
         rcProduct.addOnScrollListener(new RecyclerView.OnScrollListener() {
