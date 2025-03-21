@@ -29,13 +29,13 @@ public class IntroActivity extends AppCompatActivity {
 
         // Kiểm tra xem có username trong SharedPreferences không
         String username = sharedPreferences.getString("username", null);
-//        if (username != null) {
-//            // Nếu có username, chuyển thẳng sang MainActivity
-//            Intent intent = new Intent(IntroActivity.this, MainActivity.class);
-//            startActivity(intent);
-//            finish(); // Đóng IntroActivity để không quay lại
-//            return; // Thoát khỏi onCreate để không thực hiện các bước tiếp theo
-//        }
+        if (username != null) {
+            // Nếu có username, chuyển thẳng sang MainActivity
+            Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Đóng IntroActivity để không quay lại
+            return; // Thoát khỏi onCreate để không thực hiện các bước tiếp theo
+        }
 
         // Nếu không có username, tiếp tục hiển thị IntroActivity
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
