@@ -8,7 +8,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.giuaky.ktragiuakyandroid.dto.SignupRequest;
-import com.giuaky.ktragiuakyandroid.dto.SignupResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,7 +35,6 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        // Initialize EditText fields
         editTextName = findViewById(R.id.editTextTextPassword); // Ensure this ID matches your layout
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword2);
@@ -53,42 +51,44 @@ public class SignupActivity extends AppCompatActivity {
             return;
         }
 
-        // Create signup request
+        // Create signup request (giả sử API nhận JSON hoặc form data)
         SignupRequest request = new SignupRequest(name, email, password);
         performSignup(request);
     }
 
     private void performSignup(SignupRequest request) {
         SignupApiService apiService = RetrofitClient.getRetrofit().create(SignupApiService.class);
-        Call<SignupResponse> call = apiService.signup(request);
+        Call<String> call = apiService.signup(request); // Thay SignupResponse bằng String
 
-        call.enqueue(new Callback<SignupResponse>() {
+        call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
-                if (response.isSuccessful()) {
-                    SignupResponse signupResponse = response.body();
-                    if (signupResponse != null && signupResponse.isSuccess()) {
-                        showToast("Đăng ký thành công!");
-                        navigateToLogin();
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String responseBody = response.body();
+                    // Kiểm tra nếu phản hồi là "User created"
+                    if ("User created".equals(responseBody)) {
+                        handleSignupSuccess();
                     } else {
-                        String message = signupResponse != null && signupResponse.getMessage() != null
-                                ? signupResponse.getMessage()
-                                : "Đăng ký thất bại";
-                        String errorCode = signupResponse != null && signupResponse.getErrorCode() != null
-                                ? " (Mã lỗi: " + signupResponse.getErrorCode() + ")"
-                                : "";
-                        showToast(message + errorCode);
+                        // Xử lý các phản hồi khác (có thể là lỗi từ server)
+                        showToast(responseBody != null ? responseBody : "Đăng ký thất bại");
                     }
                 } else {
-                    showToast("Lỗi server: " + response.message());
+                    // Xử lý lỗi HTTP
+                    showToast("Lỗi server: " + response.code() + " - " + response.message());
                 }
             }
 
             @Override
-            public void onFailure(Call<SignupResponse> call, Throwable t) {
-                showToast("Lỗi mạng: " + t.getMessage());
+            public void onFailure(Call<String> call, Throwable t) {
+                showToast("Lỗi kết nối: " + t.getMessage());
             }
         });
+    }
+
+    // Phương thức xử lý khi đăng ký thành công
+    private void handleSignupSuccess() {
+        showToast("Đăng ký thành công!");
+        navigateToLogin();
     }
 
     private void showToast(String message) {
@@ -96,7 +96,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void navigateToLogin() {
-        Intent intent = new Intent(SignupActivity.this, login.class); // Assuming class name is "LoginActivity"
+        Intent intent = new Intent(SignupActivity.this, login.class);
         startActivity(intent);
         finish();
     }
