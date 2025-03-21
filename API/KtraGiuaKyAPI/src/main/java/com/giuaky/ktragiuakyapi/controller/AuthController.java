@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -21,8 +24,10 @@ public class AuthController {
 	 private IAuthService authService;
 
 	@PostMapping("/register")
-	public ResponseEntity<String> register(@Valid @RequestBody UserCreateRequest request) {
-		return new ResponseEntity<>(authService.register(request), HttpStatus.CREATED);
+	public ResponseEntity<Map<String, String>> register(@Valid @RequestBody UserCreateRequest request) {
+		Map<String, String> response = new HashMap<>();
+		response.put("message", authService.register(request));
+		return new ResponseEntity<>(response, HttpStatus.CREATED); // Sửa thành HttpStatus.CREATED (201)
 	}
 
 	@PostMapping("/login")
