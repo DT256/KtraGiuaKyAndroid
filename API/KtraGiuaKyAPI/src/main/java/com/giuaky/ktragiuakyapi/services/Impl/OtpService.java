@@ -1,4 +1,4 @@
-package com.giuaky.ktragiuakyapi.services;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
 import com.giuaky.ktragiuakyapi.entity.Otp;
 import com.giuaky.ktragiuakyapi.repository.OtpRepository;

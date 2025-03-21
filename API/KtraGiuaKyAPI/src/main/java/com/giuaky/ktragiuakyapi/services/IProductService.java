@@ -1,6 +1,6 @@
-package com.giuaky.ktragiuakyapi.Services;
+package com.giuaky.ktragiuakyapi.services;
 
-import com.giuaky.ktragiuakyapi.Product;
+import com.giuaky.ktragiuakyapi.entity.Product;
 
 import java.util.List;
 
@@ -11,3 +11,4 @@ public interface IProductService {
     List<Product> getProductsByCategoryId(Long categoryId, int page, int limit); // Thêm phương thức mới
     int getTotalProductsByCategoryId(Long categoryId);
 }
+
