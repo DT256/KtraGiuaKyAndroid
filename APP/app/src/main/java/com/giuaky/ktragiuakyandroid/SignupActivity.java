@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.giuaky.ktragiuakyandroid.dto.SignupRequest;
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,28 +60,26 @@ public class SignupActivity extends AppCompatActivity {
 
     private void performSignup(SignupRequest request) {
         SignupApiService apiService = RetrofitClient.getRetrofit().create(SignupApiService.class);
-        Call<String> call = apiService.signup(request); // Thay SignupResponse bằng String
+        Call<Map<String, String>> call = apiService.signup(request);
 
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<Map<String, String>>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    String responseBody = response.body();
-                    // Kiểm tra nếu phản hồi là "User created"
-                    if ("User created".equals(responseBody)) {
+            public void onResponse(Call<Map<String, String>> call, Response<Map<String, String>> response) {
+                if (response.code() == 201) { // Khớp với HttpStatus.CREATED
+                    Map<String, String> responseBody = response.body();
+                    if (responseBody != null && responseBody.containsKey("message")) {
                         handleSignupSuccess();
                     } else {
-                        // Xử lý các phản hồi khác (có thể là lỗi từ server)
-                        showToast(responseBody != null ? responseBody : "Đăng ký thất bại");
+                        showToast("Đăng ký thất bại: Phản hồi không hợp lệ");
                     }
                 } else {
-                    // Xử lý lỗi HTTP
-                    showToast("Lỗi server: " + response.code() + " - " + response.message());
+                    String errorMsg = response.body() != null ? response.body().toString() : "Lỗi không xác định";
+                    showToast("Đăng ký thất bại: " + response.code() + " - " + errorMsg);
                 }
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<Map<String, String>> call, Throwable t) {
                 showToast("Lỗi kết nối: " + t.getMessage());
             }
         });

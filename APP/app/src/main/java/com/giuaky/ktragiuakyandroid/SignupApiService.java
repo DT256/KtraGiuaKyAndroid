@@ -2,6 +2,8 @@ package com.giuaky.ktragiuakyandroid;
 
 import com.giuaky.ktragiuakyandroid.dto.SignupRequest;
 
+import java.util.Map;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -18,5 +20,5 @@ import retrofit2.http.POST;
  */
 public interface SignupApiService {
     @POST("api/auth/register")
-    Call<String> signup(@Body SignupRequest request);
+    Call<Map<String, String>> signup(@Body SignupRequest request);
 }
