@@ -1,29 +1,33 @@
 package com.giuaky.ktragiuakyapi;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.giuaky.ktragiuakyapi.Entity.Category;
+import jakarta.persistence.*;
 
 @Entity
+//22110429_VoNguyenXuanThinh
 public class Product {
-    //22110429_VoNguyenXuanThinh
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tự động tăng
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private double price;
     private String image;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id") // Khóa ngoại tham chiếu đến bảng Category
+    private Category category;
+
+    // Constructor mặc định
     public Product() {
     }
 
-
-    public Product(Long id, String name, double price, String image) {
+    // Constructor có tham số
+    public Product(Long id, String name, double price, String image, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.image = image;
+        this.category = category;
     }
 
     // Getters và Setters
@@ -57,5 +61,13 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
