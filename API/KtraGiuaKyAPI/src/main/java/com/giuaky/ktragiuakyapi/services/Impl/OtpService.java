@@ -1,7 +1,9 @@
 package com.giuaky.ktragiuakyapi.services.Impl;
 
 import com.giuaky.ktragiuakyapi.entity.Otp;
+import com.giuaky.ktragiuakyapi.entity.User;
 import com.giuaky.ktragiuakyapi.repository.OtpRepository;
+import com.giuaky.ktragiuakyapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class OtpService {
 
     @Autowired
     private OtpRepository otpRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     Optional<Otp> findTopByEmailOrderByExpirationTimeDesc(String email) {
         return otpRepository.findTopByEmailOrderByExpirationTimeDesc(email);
@@ -39,7 +44,10 @@ public class OtpService {
 
             // Validate OTP match
             if (otpRecord.getOtp().equals(otp)) {
-                otpRepository.delete(otpRecord); // Xóa OTP sau khi xác thực thành công
+                otpRepository.delete(otpRecord);
+                User user = userRepository.findByEmail(email).get();
+                user.setActive(true);
+                userRepository.save(user);
                 return true;
             }
         }

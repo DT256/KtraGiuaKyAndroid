@@ -33,6 +33,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_verify_otp);
+
+        String email = getIntent().getStringExtra("email");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -47,8 +49,6 @@ public class VerifyOtpActivity extends AppCompatActivity {
         otpInputs[5] = findViewById(R.id.otp6);
         verifyButton = findViewById(R.id.verify_button);
 
-        // Giả sử email được truyền vào qua Intent từ Activity khác
-        String email = "phucnguyeho@gmail.com";
 
         OtpHelper.sendOtp(this, email);
 

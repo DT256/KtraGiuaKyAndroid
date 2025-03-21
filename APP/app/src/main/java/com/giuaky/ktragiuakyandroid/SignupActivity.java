@@ -68,7 +68,7 @@ public class SignupActivity extends AppCompatActivity {
                 if (response.code() == 201) { // Khớp với HttpStatus.CREATED
                     Map<String, String> responseBody = response.body();
                     if (responseBody != null && responseBody.containsKey("message")) {
-                        handleSignupSuccess();
+                        handleSignupSuccess(editTextEmail.getText().toString().trim());
                     } else {
                         showToast("Đăng ký thất bại: Phản hồi không hợp lệ");
                     }
@@ -86,20 +86,22 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     // Phương thức xử lý khi đăng ký thành công
-    private void handleSignupSuccess() {
+    private void handleSignupSuccess(String email) {
         showToast("Đăng ký thành công!");
-        navigateToOTP();
+        navigateToOTP(email);
     }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private void navigateToOTP() {
+    private void navigateToOTP(String email) {
         Intent intent = new Intent(SignupActivity.this, VerifyOtpActivity.class);
+        intent.putExtra("email", email); // Truyền email qua Intent
         startActivity(intent);
         finish();
     }
+
 
     private void navigateToLogin() {
         Intent intent = new Intent(SignupActivity.this, login.class);
