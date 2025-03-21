@@ -35,8 +35,8 @@
     <EditText
         android:id="@+id/edt_activity_main_email"
         android:layout_width="match_parent"
-        android:hint="Email"
-        android:drawableStart="@drawable/email"
+        android:hint="Username"
+        android:drawableStart="@drawable/name"
         android:drawablePadding="20px"
         android:inputType="textEmailAddress"
         android:padding="8px"
