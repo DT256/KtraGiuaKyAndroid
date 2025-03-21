@@ -16,21 +16,19 @@ public class AuthServiceImpl implements IAuthService {
     @Autowired
     private UserRepository userRepository;
 
+    //Tran Phi Thang 22110424
     @Override
     public String register(UserCreateRequest request) {
         Optional<User> existingUser = userRepository.findByEmail(request.getEmail());
-
         if (existingUser.isPresent()) {
             throw new RuntimeException("Email already registered");
         }
-
         User newUser = new User();
         newUser.setEmail(request.getEmail());
         newUser.setPassword(request.getPassword());
-
-
+        newUser.setActive(false);
+        newUser.setUsername(request.getUsername());
         userRepository.save(newUser);
-
         return "User created";
     }
 
@@ -38,8 +36,10 @@ public class AuthServiceImpl implements IAuthService {
     public UserResponse login(UserLoginRequest request) {
         User user = userRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
-
-        if (request.getPassword()==user.getPassword()) {
+        if(!user.isActive()) {
+            throw new RuntimeException("User is not active");
+        }
+        if (!user.getPassword().equals(request.getPassword())) {
             throw new RuntimeException("Invalid email or password");
         }
         UserResponse  userResponse = new UserResponse();
