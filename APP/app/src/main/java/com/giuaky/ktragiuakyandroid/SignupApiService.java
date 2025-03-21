@@ -18,6 +18,6 @@ import retrofit2.http.POST;
  *  🔥 Code sạch - Chạy mượt - Không bug! 🔥
  */
 public interface SignupApiService {
-    @POST("api/signup")
+    @POST("api/register")
     Call<SignupResponse> signup(@Body SignupRequest request);
 }

@@ -1,6 +1,6 @@
 package com.giuaky.ktragiuakyapi;
 
 public interface IAuthService {
-	AuthResponse register(UserCreateRequest request);
-    AuthResponse login(UserLoginRequest request);
+	String register(UserCreateRequest request);
+    UserResponse login(UserLoginRequest request);
 }

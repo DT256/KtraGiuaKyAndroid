@@ -1,5 +1,6 @@
 package com.giuaky.ktragiuakyapi;
 
+import com.giuaky.ktragiuakyapi.Repository.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements IProductService{
+public class ProductServiceImpl implements IProductService {
 
     @Autowired
     private ProductRepository productRepository;
