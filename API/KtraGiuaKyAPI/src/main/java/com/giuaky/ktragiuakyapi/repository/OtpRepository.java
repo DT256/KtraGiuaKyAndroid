@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Author: 22110400 - Nguyen Hoang Phuc
+ */
 @Repository
 public interface OtpRepository extends JpaRepository<Otp, Long> {
     Optional<Otp> findTopByEmailOrderByExpirationTimeDesc(String email);
