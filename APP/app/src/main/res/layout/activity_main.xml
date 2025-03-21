@@ -21,8 +21,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="60dp"
-        />
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:layoutManager="grid"
+        tools:listitem="@layout/item_product"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
