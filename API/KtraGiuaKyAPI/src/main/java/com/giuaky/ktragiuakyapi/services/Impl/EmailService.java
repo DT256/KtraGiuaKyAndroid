@@ -1,4 +1,4 @@
-package com.giuaky.ktragiuakyapi.services;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
