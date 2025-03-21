@@ -1,10 +1,8 @@
-package com.giuaky.ktragiuakyapi.service;
+package com.giuaky.ktragiuakyapi.services;
 
 import com.giuaky.ktragiuakyapi.entity.Otp;
 import com.giuaky.ktragiuakyapi.repository.OtpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

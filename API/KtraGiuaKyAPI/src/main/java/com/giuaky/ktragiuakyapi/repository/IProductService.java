@@ -1,6 +1,6 @@
-package com.giuaky.ktragiuakyapi.Repository;
+package com.giuaky.ktragiuakyapi.repository;
 
-import com.giuaky.ktragiuakyapi.Product;
+import com.giuaky.ktragiuakyapi.entity.Product;
 
 import java.util.List;
 

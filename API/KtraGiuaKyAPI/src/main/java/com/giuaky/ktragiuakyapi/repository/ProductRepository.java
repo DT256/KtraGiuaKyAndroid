@@ -1,5 +1,6 @@
-package com.giuaky.ktragiuakyapi;
+package com.giuaky.ktragiuakyapi.repository;
 
+import com.giuaky.ktragiuakyapi.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

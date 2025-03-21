@@ -1,4 +1,4 @@
-package com.giuaky.ktragiuakyapi;
+package com.giuaky.ktragiuakyapi.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

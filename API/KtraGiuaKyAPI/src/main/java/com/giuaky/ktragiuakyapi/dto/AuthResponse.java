@@ -1,4 +1,4 @@
-package com.giuaky.ktragiuakyapi;
+package com.giuaky.ktragiuakyapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

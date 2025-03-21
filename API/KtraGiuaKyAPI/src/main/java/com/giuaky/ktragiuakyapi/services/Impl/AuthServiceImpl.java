@@ -1,15 +1,20 @@
-package com.giuaky.ktragiuakyapi;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
 import java.util.Optional;
 
+import com.giuaky.ktragiuakyapi.repository.UserRepository;
+import com.giuaky.ktragiuakyapi.entity.User;
+import com.giuaky.ktragiuakyapi.services.IAuthService;
+import com.giuaky.ktragiuakyapi.dto.UserCreateRequest;
+import com.giuaky.ktragiuakyapi.dto.UserLoginRequest;
+import com.giuaky.ktragiuakyapi.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mapping.IdentifierAccessor;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthServiceImpl implements IAuthService {
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public String register(UserCreateRequest request) {

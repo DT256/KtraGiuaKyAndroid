@@ -1,15 +1,14 @@
-package com.giuaky.ktragiuakyapi;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
-import com.giuaky.ktragiuakyapi.Repository.IProductService;
+import com.giuaky.ktragiuakyapi.entity.Product;
+import com.giuaky.ktragiuakyapi.repository.IProductService;
+import com.giuaky.ktragiuakyapi.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Service

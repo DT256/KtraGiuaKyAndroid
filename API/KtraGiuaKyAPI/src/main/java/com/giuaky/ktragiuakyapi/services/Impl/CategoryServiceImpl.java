@@ -1,8 +1,8 @@
-package com.giuaky.ktragiuakyapi.Services.Impl;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
-import com.giuaky.ktragiuakyapi.Entity.Category;
-import com.giuaky.ktragiuakyapi.Repository.CategoryRepository;
-import com.giuaky.ktragiuakyapi.Services.ICategoryService;
+import com.giuaky.ktragiuakyapi.entity.Category;
+import com.giuaky.ktragiuakyapi.repository.CategoryRepository;
+import com.giuaky.ktragiuakyapi.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

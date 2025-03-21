@@ -1,6 +1,5 @@
-package com.giuaky.ktragiuakyapi.Entity;
+package com.giuaky.ktragiuakyapi.entity;
 
-import com.giuaky.ktragiuakyapi.Product;
 import jakarta.persistence.*;
 import lombok.*;
 

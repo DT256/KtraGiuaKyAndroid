@@ -1,6 +1,6 @@
-package com.giuaky.ktragiuakyapi.Services;
+package com.giuaky.ktragiuakyapi.services;
 
-import com.giuaky.ktragiuakyapi.Entity.Category;
+import com.giuaky.ktragiuakyapi.entity.Category;
 
 import java.util.List;
 
