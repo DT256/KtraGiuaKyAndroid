@@ -12,12 +12,18 @@ Giao diện trang Intro
 ![image](https://github.com/user-attachments/assets/80d1111e-82ad-430c-9322-611219857f07)
 
 
+
+
 Giao diện trang register
 ![image](https://github.com/user-attachments/assets/634abf07-2119-452c-8a40-2de0215670b9)
 
 
+
+
 Giao diện trang otp
 ![image](https://github.com/user-attachments/assets/b4827feb-28dd-4bbb-96f9-2d9ff7e7648a)
+
+
 
 
 
@@ -26,5 +32,9 @@ Giao diện trang login
 
 
 
+
+
 Giao diện trang main
 ![image](https://github.com/user-attachments/assets/df73ddbe-ffde-47ad-a5ae-21e5eb7efd3b)
+
+
