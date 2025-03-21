@@ -10,7 +10,7 @@ public class RetrofitClient {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     // Đường dẫn API
-                    .baseUrl("http://http://localhost:8080/")
+                    .baseUrl("http://localhost:8080/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
