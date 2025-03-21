@@ -11,3 +11,4 @@ public interface IProductService {
     List<Product> getProductsByCategoryId(Long categoryId, int page, int limit); // Thêm phương thức mới
     int getTotalProductsByCategoryId(Long categoryId);
 }
+
