@@ -1,4 +1,4 @@
-package com.giuaky.ktragiuakyandroid;
+package com.giuaky.ktragiuakyandroid.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,14 +9,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide; // Import Glide
+import com.giuaky.ktragiuakyandroid.Category;
+import com.giuaky.ktragiuakyandroid.R;
+import com.giuaky.ktragiuakyandroid.model.CategoryModel;
+
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private Context context;
-    private List<Category> categoryList;
+    private List<CategoryModel> categoryList;
 
-    public CategoryAdapter(Context context, List<Category> categoryList) {
+    public CategoryAdapter(Context context, List<CategoryModel> categoryList) {
         this.context = context;
         this.categoryList = categoryList;
     }
@@ -30,7 +34,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category = categoryList.get(position);
+        CategoryModel category = categoryList.get(position);
         holder.tvCategoryName.setText(category.getName());
 
         // Load ảnh bằng Glide
