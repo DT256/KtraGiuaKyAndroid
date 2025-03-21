@@ -23,6 +23,7 @@ public class AuthController {
 	@Autowired
 	 private IAuthService authService;
 
+	//Tran Phi Thang  22110424
 	@PostMapping("/register")
 	public ResponseEntity<Map<String, String>> register(@Valid @RequestBody UserCreateRequest request) {
 		Map<String, String> response = new HashMap<>();
@@ -30,6 +31,7 @@ public class AuthController {
 		return new ResponseEntity<>(response, HttpStatus.CREATED); // Sửa thành HttpStatus.CREATED (201)
 	}
 
+	//Ho Le Tan Loi  22110370
 	@PostMapping("/login")
 	public ResponseEntity<UserResponse> login(@Valid @RequestBody UserLoginRequest request) {
 		return new ResponseEntity<>(authService.login(request), HttpStatus.OK);

@@ -10,7 +10,7 @@ import com.giuaky.ktragiuakyapi.dto.UserLoginRequest;
 import com.giuaky.ktragiuakyapi.dto.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+//Tran Phi Thang 22110424
 @Service
 public class AuthServiceImpl implements IAuthService {
     @Autowired
@@ -31,7 +31,7 @@ public class AuthServiceImpl implements IAuthService {
         userRepository.save(newUser);
         return "User created";
     }
-
+    //Ho Le Tan Loi 22110370
     @Override
     public UserResponse login(UserLoginRequest request) {
         User user = userRepository.findByUsername(request.getUsername())

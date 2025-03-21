@@ -21,6 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//22110400 Nguyen Hoang Phuc
 public class VerifyOtpActivity extends AppCompatActivity {
 
     private EditText[] otpInputs = new EditText[6]; // 6 ô nhập OTP

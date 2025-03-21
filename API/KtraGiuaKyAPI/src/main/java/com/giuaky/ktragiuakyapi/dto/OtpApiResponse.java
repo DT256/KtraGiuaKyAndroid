@@ -1,10 +1,5 @@
 package com.giuaky.ktragiuakyapi.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 /**
  * Author: 22110400 - Nguyen Hoang Phuc
  */

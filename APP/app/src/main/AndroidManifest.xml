@@ -21,9 +21,6 @@
             android:name=".VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".OtpActivity"
-            android:exported="false" />
-        <activity
             android:name=".login"
             android:exported="false" />
         <activity

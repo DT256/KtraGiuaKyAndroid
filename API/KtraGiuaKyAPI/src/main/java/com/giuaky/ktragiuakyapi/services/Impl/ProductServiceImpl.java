@@ -1,6 +1,5 @@
-package com.giuaky.ktragiuakyapi.services.impl;
+package com.giuaky.ktragiuakyapi.services.Impl;
 
-import com.giuaky.ktragiuakyapi.Services.IProductService;
 import com.giuaky.ktragiuakyapi.entity.Product;
 import com.giuaky.ktragiuakyapi.services.IProductService;
 import com.giuaky.ktragiuakyapi.repository.ProductRepository;
@@ -36,7 +35,11 @@ public class ProductServiceImpl implements IProductService {
         // Sắp xếp theo giá tăng dần, lọc theo categoryId
         Pageable pageable = PageRequest.of(page - 1, limit, Sort.by("price").ascending());
         return productRepository.findByCategoryId(categoryId, pageable).getContent();
-        return List.of();
+    }
+
+    @Override
+    public int getTotalProductsByCategoryId(Long categoryId) {
+        return 0;
     }
 
 }

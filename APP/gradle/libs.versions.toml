@@ -20,7 +20,7 @@ gilde_compiler = "4.14.2"
 
 lombok = "1.18.30"
 lombok-mapstruct-binding = "0.2.0"
-recyclerview = "1.4.0"
+
 
 
 [libraries]
@@ -42,7 +42,6 @@ gildeCompiler = { group = "com.github.bumptech.glide", name = "compiler", versio
 
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
 lombok-mapstruct-binding = { group = "org.projectlombok", name = "lombok-mapstruct-binding", version.ref = "lombok-mapstruct-binding" }
-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 
 

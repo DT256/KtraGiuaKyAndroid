@@ -88,11 +88,17 @@ public class SignupActivity extends AppCompatActivity {
     // Phương thức xử lý khi đăng ký thành công
     private void handleSignupSuccess() {
         showToast("Đăng ký thành công!");
-        navigateToLogin();
+        navigateToOTP();
     }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void navigateToOTP() {
+        Intent intent = new Intent(SignupActivity.this, VerifyOtpActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void navigateToLogin() {

@@ -8,8 +8,9 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
+//Pham Trung Ky 22110361
 public interface ApiServiceLogin {
 
-    @POST("login")
-    Call<Response<LoginRespone>> login(@Body LoginRequest loginRequest);
+    @POST("api/auth/login")
+    Call<LoginRespone> login(@Body LoginRequest loginRequest);
 }

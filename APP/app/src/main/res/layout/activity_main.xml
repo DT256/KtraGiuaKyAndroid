@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_Container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/orange"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity">
 
-
-    <ScrollView
+    <!-- NestedScrollView giúp giữ Bottom Navigation cố định -->
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/app_bar"
+        tools:ignore="NotSibling">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
 
             <!-- Header -->
             <LinearLayout
@@ -40,7 +40,8 @@
                     android:layout_weight="1"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:text="Xin chào, User!" />
 
                 <ImageView
                     android:id="@+id/iv_user_avatar"
@@ -48,6 +49,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center_vertical"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/ic_default_avatar"
                     android:background="@drawable/circle_background" />
             </LinearLayout>
 
@@ -60,7 +62,7 @@
                 android:background="@drawable/search_background"
                 android:drawableStart="@android:drawable/ic_menu_search"
                 android:drawablePadding="10dp"
-                android:hint="Search"
+                android:hint="Tìm kiếm sản phẩm..."
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textColorHint="#999999"
@@ -125,7 +127,7 @@
                 android:id="@+id/tv_categories_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Categories"
+                android:text="Danh mục"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
@@ -138,16 +140,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <!-- Tiêu đề "Last Product" -->
+            <!-- Tiêu đề "Sản phẩm mới nhất" -->
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Last Product"
+                android:text="Sản phẩm mới nhất"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -159,15 +161,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp" />
 
-        </LinearLayout>
-    </ScrollView>
+            <!-- ProgressBar hiển thị khi tải dữ liệu -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
 
-    <!-- Bottom Navigation -->
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/scroll"
         app:layout_constraintEnd_toEndOf="parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -180,8 +190,117 @@
             app:fabCradleRoundedCornerRadius="50dp"
             app:fabCradleVerticalOffset="6dp"
             app:fabAlignmentMode="center"
-            app:hideOnScroll="true" />
+            app:hideOnScroll="true">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/homeBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@drawable/ic_home"
+                        app:tint="#FF0000" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Home"
+                        android:textAlignment="center"
+                        android:textColor="#676767"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView5115"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        app:srcCompat="@drawable/bottom_btn2"
+                        app:tint="#FF0000"/>
+
+                    <TextView
+                        android:id="@+id/textView11125"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Settings"
+                        android:textAlignment="center"
+                        android:textColor="#676767"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView511"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@drawable/bottom_btn3"
+                        app:tint="#FF0000"/>
+
+                    <TextView
+                        android:id="@+id/textView111"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Support"
+                        android:textAlignment="center"
+                        android:textColor="#676767"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView5112"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        app:srcCompat="@drawable/logout"
+                        app:tint="#FF0000"/>
+
+                    <TextView
+                        android:id="@+id/textView1112"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Logout"
+                        android:textAlignment="center"
+                        android:textColor="#676767"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cartBtn"
             android:layout_width="60dp"
@@ -189,9 +308,13 @@
             android:layout_gravity="center|bottom"
             android:layout_marginBottom="30dp"
             android:backgroundTint="#FF5E00"
+            android:src="@drawable/shopping_cart"
             app:tint="@color/white"
-            app:maxImageSize="24dp"
+            app:maxImageSize="40dp"
             app:elevation="8dp" />
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

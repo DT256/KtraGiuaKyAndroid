@@ -15,6 +15,7 @@ import com.giuaky.ktragiuakyandroid.model.CategoryModel;
 
 import java.util.List;
 
+//22110427 Le Xuan Thinh
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private Context context;

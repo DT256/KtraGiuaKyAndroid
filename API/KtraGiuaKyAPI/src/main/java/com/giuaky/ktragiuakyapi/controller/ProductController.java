@@ -1,7 +1,7 @@
 package com.giuaky.ktragiuakyapi.controller;
 
-import com.giuaky.ktragiuakyapi.Services.IProductService;
 import com.giuaky.ktragiuakyapi.entity.Product;
+
 import com.giuaky.ktragiuakyapi.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

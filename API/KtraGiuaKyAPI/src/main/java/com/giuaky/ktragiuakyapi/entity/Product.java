@@ -1,6 +1,7 @@
 package com.giuaky.ktragiuakyapi.entity;
 
-import com.giuaky.ktragiuakyapi.Entity.Category;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,7 @@ public class Product {
     private double price;
     private String image;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "category_id") // Khóa ngoại tham chiếu đến bảng Category
     private Category category;

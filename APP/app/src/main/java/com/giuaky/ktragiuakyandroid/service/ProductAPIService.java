@@ -8,10 +8,11 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
+//22110422 Bui Duc Thang
 public interface ProductAPIService {
     @GET("api/products")
     Call<ProductResponse> getProducts(
-            @Query("category") String category,
+            @Query("category") Long categoryId,
             @Query("page") int page,
             @Query("size") int size
     );

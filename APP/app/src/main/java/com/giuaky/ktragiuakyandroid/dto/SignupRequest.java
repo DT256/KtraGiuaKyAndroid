@@ -11,23 +11,23 @@ package com.giuaky.ktragiuakyandroid.dto;
  *  🔥 Code sạch - Chạy mượt - Không bug! 🔥
  */
 public class SignupRequest {
-    private String name;
+    private String username;
     private String email;
     private String password;
 
-    public SignupRequest(String name, String email, String password) {
-        this.name = name;
+    public SignupRequest(String username, String email, String password) {
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
     // Getter và Setter
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
