@@ -1,5 +1,6 @@
 package com.giuaky.ktragiuakyapi.Entity;
 
+import com.giuaky.ktragiuakyapi.Product;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,6 +33,6 @@ public class Category {
     private String images;
 
 
-//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Product> productList;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Product> productList;
 }
