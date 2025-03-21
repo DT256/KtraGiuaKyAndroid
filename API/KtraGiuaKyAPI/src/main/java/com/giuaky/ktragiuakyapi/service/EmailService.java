@@ -5,6 +5,9 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+/**
+ * Author: 22110400 - Nguyen Hoang Phuc
+ */
 @Service
 public class EmailService {
 
