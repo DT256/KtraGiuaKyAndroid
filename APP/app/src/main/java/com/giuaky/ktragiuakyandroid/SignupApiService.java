@@ -1,7 +1,6 @@
 package com.giuaky.ktragiuakyandroid;
 
 import com.giuaky.ktragiuakyandroid.dto.SignupRequest;
-import com.giuaky.ktragiuakyandroid.dto.SignupResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,6 +17,6 @@ import retrofit2.http.POST;
  *  🔥 Code sạch - Chạy mượt - Không bug! 🔥
  */
 public interface SignupApiService {
-    @POST("api/signup")
-    Call<SignupResponse> signup(@Body SignupRequest request);
+    @POST("api/auth/register")
+    Call<String> signup(@Body SignupRequest request);
 }
