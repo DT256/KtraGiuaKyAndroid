@@ -1,5 +1,8 @@
 package com.giuaky.ktragiuakyapi;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,19 +13,16 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
-	 private final IAuthService authService;
+	@Autowired
+	 private IAuthService authService;
 
-	    public AuthController(IAuthService authService) {
-	        this.authService = authService;
-	    }
+	@PostMapping("/register")
+	public ResponseEntity<String> register(@Valid @RequestBody UserCreateRequest request) {
+		return new ResponseEntity<>(authService.register(request), HttpStatus.CREATED);
+	}
 
-	    @PostMapping("/register")
-	    public AuthResponse register(@Valid @RequestBody UserCreateRequest request) {
-	        return authService.register(request);
-	    }
-
-	    @PostMapping("/login")
-	    public AuthResponse login(@Valid @RequestBody UserLoginRequest request) {
-	        return authService.login(request);
-	    }
+	@PostMapping("/login")
+	public ResponseEntity<UserResponse> login(@Valid @RequestBody UserLoginRequest request) {
+		return new ResponseEntity<>(authService.login(request), HttpStatus.OK);
+	}
 }
