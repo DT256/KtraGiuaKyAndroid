@@ -24,6 +24,9 @@
             android:name=".OtpActivity"
             android:exported="false" />
         <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -32,6 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignupActivity" />
     </application>
 
 </manifest>
