@@ -7,6 +7,7 @@ import com.giuaky.ktragiuakyapi.repository.OtpRepository;
 import com.giuaky.ktragiuakyapi.service.EmailService;
 import com.giuaky.ktragiuakyapi.service.OtpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +48,21 @@ public class OtpController {
         );
 
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<OtpApiResponse> verifyOtp(
+            @RequestParam String email,
+            @RequestParam String otp) {
+
+        boolean isValid = otpService.verifyOtp(otp, email);
+
+        if (isValid) {
+            return ResponseEntity.ok(new OtpApiResponse(true, "OTP is valid", null));
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new OtpApiResponse(false, "Invalid or expired OTP", null));
+        }
     }
 
 

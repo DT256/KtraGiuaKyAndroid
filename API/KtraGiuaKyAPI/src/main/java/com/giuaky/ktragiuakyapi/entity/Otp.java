@@ -24,6 +24,9 @@ public class Otp {
     @Column(nullable = false)
     private LocalDateTime expirationTime;  // OTP expiration time
 
+    public Otp() {
+    }
+
     public Otp(String email, String otp, LocalDateTime expirationTime) {
         this.email = email;
         this.otp = otp;
